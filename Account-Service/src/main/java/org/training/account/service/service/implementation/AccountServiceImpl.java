@@ -70,6 +70,12 @@ public class AccountServiceImpl implements AccountService {
             throw new ResourceConflict("Person whose age lower than 18, cant create account");
         }
 
+        if (accountDto.getSalary() <=50000)
+        {
+            log.error("Person whose age lower than 50000, cant create account");
+            throw new ResourceConflict("Person whose age lower than 50000, cant create account");
+        }
+
         Account account = accountMapper.convertToEntity(accountDto);
         account.setAccountNumber(ACC_PREFIX + String.format("%07d",sequenceService.generateAccountNumber().getAccountNumber()));
         account.setAccountStatus(AccountStatus.PENDING);
@@ -129,6 +135,10 @@ public class AccountServiceImpl implements AccountService {
      * @param accountDto    The account DTO containing the updated account information.
      * @return A response indicating the success or failure of the account update.
      * @throws AccountStatusException If the account is inactive or closed.
+     *
+     *
+     *
+     *
      * @throws ResourceNotFound      If the account is not found on the server.
      */
     @Override
@@ -170,6 +180,7 @@ public class AccountServiceImpl implements AccountService {
 
         return transactionService.getTransactionsFromAccountId(accountId);
     }
+    //My name is akash kumar
 
     /**
      * Closes the account with the specified account number.

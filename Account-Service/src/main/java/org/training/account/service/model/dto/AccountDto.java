@@ -26,4 +26,6 @@ public class AccountDto {
     private Long userId;
 
     private Integer age;
+
+    private  double Salary;
 }

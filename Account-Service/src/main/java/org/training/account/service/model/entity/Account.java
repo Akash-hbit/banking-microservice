@@ -38,4 +38,7 @@ public class Account {
 
     private Long userId;
     private Integer age;
+
+    private double Salary;
+
 }
