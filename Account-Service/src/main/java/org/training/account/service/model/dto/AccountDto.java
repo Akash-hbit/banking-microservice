@@ -24,4 +24,6 @@ public class AccountDto {
     private BigDecimal availableBalance;
 
     private Long userId;
+
+    private Integer age;
 }

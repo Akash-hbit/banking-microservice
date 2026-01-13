@@ -65,6 +65,10 @@ public class AccountServiceImpl implements AccountService {
                     log.error("Account already exists on the server");
                     throw new ResourceConflict("Account already exists on the server");
                 });
+        if(accountDto.getAge()<=18){
+            log.error("Person whose age lower than 18, cant create account");
+            throw new ResourceConflict("Person whose age lower than 18, cant create account");
+        }
 
         Account account = accountMapper.convertToEntity(accountDto);
         account.setAccountNumber(ACC_PREFIX + String.format("%07d",sequenceService.generateAccountNumber().getAccountNumber()));

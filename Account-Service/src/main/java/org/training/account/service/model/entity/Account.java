@@ -37,4 +37,5 @@ public class Account {
     private BigDecimal availableBalance;
 
     private Long userId;
+    private Integer age;
 }
