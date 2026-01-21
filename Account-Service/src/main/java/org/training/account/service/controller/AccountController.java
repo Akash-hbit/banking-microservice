@@ -120,5 +120,13 @@ public class AccountController {
 
 
 
+/**
+     * Ping endpoint to check if the service is up and running.
+     *
+     * @return A simple response indicating the service status.
+     */
+    @GetMapping("/ping")
+    public ResponseEntity<String> ping() {
+        return ResponseEntity.ok("Account Service is up and running");
     }
 }
