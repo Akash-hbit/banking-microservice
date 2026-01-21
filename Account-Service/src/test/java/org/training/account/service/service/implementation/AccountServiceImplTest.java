@@ -1,3 +1,4 @@
+// New commit addition for account-service-test branch
 package org.training.account.service.service.implementation;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -157,7 +158,7 @@ class AccountServiceImplTest {
         Response response = accountService.updateStatus(accountDto.getAccountNumber(), statusUpdate);
 
         // Then
-        assertNotNull(response);
+        assertNotqNull(response);
         assertEquals("Account updated successfully", response.getMessage());
         verify(accountRepository).save(account);
     }
@@ -280,5 +281,11 @@ class AccountServiceImplTest {
 
         // When & Then
         assertThrows(AccountStatusException.class, () -> accountService.readAccountByUserId(100L));
+    }
+
+    @Test
+    void exampleNewTest_ShouldPass() {
+        // This is an example test added for a new commit
+        assertTrue(true);
     }
 }
